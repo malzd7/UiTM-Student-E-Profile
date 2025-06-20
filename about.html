@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UiTM Student E-Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        .carousel {
+          max-width: 600px;
+          max-height: 300px;
+          margin: 0 auto;
+        }
+        .carousel img {
+          object-fit: cover;
+          height: 300px;
+        }
+
+        .rgb-header {
+          font-size: 35px; /* Adjusted to 35px as per your previous style */
+          font-weight: 700; /* Adjusted to 700 as per your previous style */
+          text-align: center;
+          background: linear-gradient(90deg, purple, red, green, blue, purple);
+          background-size: 500px 100%; /* Adjusted to 500px 100% as per your previous style */
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: gradientEffect 3s infinite linear;
+          font-family: "Monomaniac One", sans-serif;
+          text-transform: uppercase;
+          color: transparent; /* Redundant due to -webkit-text-fill-color but kept for consistency */
+          background-clip: text; /* Modern equivalent of -webkit-background-clip */
+        }
+
+        @keyframes gradientEffect {
+          0% { background-position: 0%; }
+          100% { background-position: 100%; }
+        }
+
+        .moving-rgb-line {
+            height: 1px;
+            margin: 10px 0;
+            animation: changeColor 2s infinite;
+        }
+
+        @keyframes changeColor {
+            0% { background-color: rgb(255, 0, 0); }
+            33% { background-color: rgb(0, 255, 0); }
+            66% { background-color: rgb(0, 0, 255); }
+            100% { background-color: rgb(255, 0, 0); }
+        }
+
+        .about-container {
+            background-image: url('img/greenpurple.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 40px;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+
+    <div class="container my-4">
+        <div class="rgb-header">UiTM Student E-Profile</div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+          <img src="img/uitmlogo.png" alt="RMS Logo" width="50px">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="home.html"><i class="fa-solid fa-house"></i> Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="application.html">Application</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="report.html">Profile</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </ul>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="darkModeToggle" />
+                <label class="form-check-label" for="darkModeToggle" id="themeLabel">Dark Mode <i class="fa-solid fa-circle-half-stroke"></i></label>
+            </div>
+            <form id="logoutForm" action="/logout" method="POST">
+                <a href="index.html" button type="submit" class="btn btn-danger" style="margin-left: 20px;">Log Out</a>
+            </form>
+          </div>
+        </div>
+      </nav>
+<div class="mb-4"></div>
+<!-- Carousel Section -->
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- First Slide -->
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="img/uitmpuncakperdana.jpg" class="d-block w-100" alt="...">
+    </div>
+
+    <!-- Second Slide -->
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="img/uitmfaculty.jpg" class="d-block w-100" alt="...">
+    </div>
+
+    <!-- Third Slide -->
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="img/viewuitmpp.jpg" class="d-block w-100" alt="...">
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<!-- About Us Section -->
+<div class="container rounded py-5 px-4 mt-4 about-container">
+  <h1 class="text-center mb-4 text-body-emphasis fw-bold">Our Identity</h1>
+  <hr class="mb-5" style="border-top: 1px solid #ccc;">
+
+  <div class="row g-4 justify-content-center">
+    <!-- Mission -->
+    <div class="col-md-6">
+      <div class="p-4 bg-body border rounded shadow-sm h-100 text-center">
+        <h4 class="fw-bold text-body-emphasis mb-2"><i class="fa-solid fa-bullseye me-2"></i>Mission</h4>
+        <p class="text-body">To nurture competent, ethical, and innovative graduates who can lead in the creative and information industries.</p>
+      </div>
+    </div>
+
+    <!-- Vision -->
+    <div class="col-md-6">
+      <div class="p-4 bg-body border rounded shadow-sm h-100 text-center">
+        <h4 class="fw-bold text-body-emphasis mb-2"><i class="fa-solid fa-eye me-2"></i>Vision</h4>
+        <p class="text-body">To be a globally recognized campus of excellence in creative, knowledge-based, and professional fields.</p>
+      </div>
+    </div>
+
+    <!-- Educational Philosophy -->
+    <div class="col-md-6">
+      <div class="p-4 bg-body border rounded shadow-sm h-100 text-center">
+        <h4 class="fw-bold text-body-emphasis mb-2"><i class="fa-solid fa-book-open me-2"></i>Educational Philosophy</h4>
+        <p class="text-body">We believe in holistic education that empowers students to think critically, act ethically, and lead confidently in a global society.</p>
+      </div>
+    </div>
+
+    <!-- Core Values -->
+    <div class="col-md-6">
+      <div class="p-4 bg-body border rounded shadow-sm h-100 text-center">
+        <h4 class="fw-bold text-body-emphasis mb-2"><i class="fa-solid fa-gem me-2"></i>Core Values</h4>
+        <p class="text-body">Integrity, Excellence, Collaboration, Innovation, Respect, Accountability.</p>
+      </div>
+    </div>
+
+    <!-- Objectives -->
+    <div class="col-md-12">
+      <div class="p-4 bg-body border rounded shadow-sm h-100 text-center">
+        <h4 class="fw-bold text-body-emphasis mb-2"><i class="fa-solid fa-bullhorn me-2"></i>Objectives</h4>
+        <p class="text-body">To equip students with knowledge and skills aligned with current industry needs, foster leadership, and promote community engagement.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr style="border-top: 1px solid #ddd;" class="my-4">
+
+<div style="height: 1px; background-color: #ddd; margin: 10px 0;"></div>
+
+<!-- Multiple Views Section -->
+<div class="row about-section" style="margin-bottom: 20px;">
+  <h3 class="text-center text-body-emphasis" style="margin-bottom: 20px;">Multiple Views from UiTM Branches</h3>
+  <div class="col-md-12" style="margin: 0 auto; text-align: center;">
+    <img src="img/uitmmap.jpeg" alt="Responsive Image" style="max-width: 100%; height: auto;">
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+      <div class="moving-rgb-line"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <h5 class="title_footer">UiTM Student E-Profile</h5>
+            <p><b><i>UiTM Di Hatiku Usaha Taqwa Mulia</i></b></p>
+            <img src="img/uitmlogo.png" alt="UiTM Logo" width="100px">
+          </div>
+          <div class="col-md-4 text-center">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="about.html" class="text-decoration-none">About</a></li>
+              <li><a href="contact.html" class="text-decoration-none">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 text-center">
+            <h5>Contact Us</h5>
+            <p>Email: puncakperdana@uitm.edu.my</p>
+            <p>Phone: +60379622000</p>
+            <p>Address: No. 1, Jalan Pulau Angsa, AU 10/A, Section U10, 40150 Shah Alam, Selangor.</p>
+          </div>
+        </div>
+        <hr class="my-3">
+        <div class="text-center small text-muted">
+          &copy; 2025 UiTM. All Rights Reserved. Akmal Zainudin | <a href="sitemap.html" class="text-decoration-none">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Dark Mode Script -->
+    <script>
+      function setTheme(theme) {
+        document.documentElement.setAttribute("data-bs-theme", theme);
+        localStorage.setItem("theme", theme);
+        document.getElementById("themeLabel").innerText =
+          theme === "dark" ? "Dark Mode On" : "Dark Mode Off";
+      }
+
+      document.getElementById("darkModeToggle").addEventListener("change", function (event) {
+        setTheme(event.target.checked ? "dark" : "light");
+      });
+
+      window.onload = function () {
+        let savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          setTheme(savedTheme);
+          if (savedTheme === "dark") {
+            document.getElementById("darkModeToggle").checked = true;
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sitemap | UiTM Student E-Profile</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .theme-switch {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1050;
+    }
+
+    .sitemap-container {
+      margin-top: 80px;
+      margin-bottom: 60px;
+      padding: 40px;
+      background-color: var(--bs-body-bg);
+      color: var(--bs-body-color);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      max-width: 800px;
+    }
+
+    .sitemap-title {
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sitemap-section {
+      margin-bottom: 30px;
+    }
+
+    .sitemap-section h4 {
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--bs-border-color);
+      padding-bottom: 8px;
+    }
+
+    .sitemap-section ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .sitemap-section ul li {
+      padding: 6px 0;
+    }
+
+    .sitemap-section ul li a {
+      text-decoration: none;
+      color: var(--bs-link-color);
+      transition: color 0.2s;
+    }
+
+    .sitemap-section ul li a:hover {
+      color: var(--bs-link-hover-color);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dark Mode Switch -->
+  <div class="theme-switch form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="darkModeToggle">
+    <label class="form-check-label" for="darkModeToggle" id="themeLabel">Dark Mode</label>
+  </div>
+
+  <!-- Sitemap Content -->
+  <div class="container d-flex justify-content-center">
+    <div class="sitemap-container">
+      <div class="sitemap-title">
+        <i class="fa-solid fa-sitemap me-2"></i>Sitemap
+      </div>
+
+      <div class="sitemap-section">
+        <h4><i class="fa-solid fa-link me-2"></i>Resources</h4>
+        <ul>
+          <li><a href="https://uitm.edu.my" target="_blank">Official UiTM Website</a></li>
+          <li><a href="https://maps.google.com/?q=UiTM+Puncak+Perdana" target="_blank">UiTM Puncak Perdana Location</a></li>
+          <li><a href="https://simsweb.uitm.edu.my/" target="_blank">UiTM Student Portal</a></li>
+          <li><a href="https://mystudent.uitm.edu.my/login" target="_blank">My Student Portal</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center mt-5">
+    <hr style="border: 0; height: 1px; background-color: #ddd; margin: 20px 0;">
+    <div class="d-flex justify-content-center align-items-center small text-muted">
+      <div>&copy; 2025 UiTM. All Rights Reserved. Akmal Zainudin</div>
+      <span class="mx-2">|</span> 
+      <a href="sitemap.html" class="text-decoration-none">Sitemap</a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggle = document.getElementById('darkModeToggle');
+    const htmlTag = document.documentElement;
+    const themeLabel = document.getElementById("themeLabel");
+
+    function setTheme(theme) {
+      htmlTag.setAttribute('data-bs-theme', theme);
+      localStorage.setItem('theme', theme);
+      toggle.checked = theme === 'dark';
+      themeLabel.innerText = theme === 'dark' ? 'Dark Mode' : 'Light Mode';
+    }
+
+    toggle.addEventListener('change', () => {
+      const newTheme = toggle.checked ? 'dark' : 'light';
+      setTheme(newTheme);
+    });
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      setTheme(savedTheme);
+    };
+  </script>
+</body>
+</html>

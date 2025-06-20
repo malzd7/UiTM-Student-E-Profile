@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UiTM Student E-Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monomaniac+One&family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <style>
+      .rgb-header {
+        font-size: 35px;
+        font-weight: 700;
+        text-align: center;
+        background: linear-gradient(90deg, purple, red, green, blue, purple);
+        background-size: 500px 100%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientEffect 3s infinite linear;
+        font-family: "Monomaniac One", sans-serif;
+        text-transform: uppercase;
+        color: transparent;
+        background-clip: text;
+      }
+
+      @keyframes gradientEffect {
+        0% { background-position: 0%; }
+        100% { background-position: 100%; }
+      }
+
+      .moving-rgb-line {
+        height: 1px;
+        margin: 10px 0;
+        animation: changeColor 2s infinite;
+      }
+
+      @keyframes changeColor {
+        0% { background-color: rgb(255, 0, 0); }
+        33% { background-color: rgb(0, 255, 0); }
+        66% { background-color: rgb(0, 0, 255); }
+        100% { background-color: rgb(255, 0, 0); }
+      }
+
+      .application-container {
+        background-image: url('img/greenpurple.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white;
+        padding: 40px;
+      }
+
+      .title {
+        font-size: 36px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Header -->
+    <div class="container my-4">
+      <div class="rgb-header">UiTM Student E-Profile</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <img src="img/uitmlogo.png" alt="UiTM Logo" width="50px">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="home.html"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="application.html">Application</a></li>
+            <li class="nav-item"><a class="nav-link" href="report.html">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+
+               <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </ul>
+          <div class="form-check form-switch ms-3">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <label class="form-check-label" for="darkModeToggle" id="themeLabel">Dark Mode <i class="fa-solid fa-circle-half-stroke"></i></label>
+          </div>
+          <a href="index.html" class="btn btn-danger ms-3">Log Out</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Title -->
+    <div class="container rounded mt-4">
+      <h1 class="text-center fw-bold text-body">New Student Registration</h1>
+    </div>
+
+    <!-- Registration Form -->
+    <div class="container">
+      <form>
+        <div class="row my-4">
+          <div class="col-md-4">
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control bg-body-tertiary" id="floatingFirstname" placeholder="Full name" required>
+              <label for="floatingFirstname">Full name</label>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control bg-body-tertiary" id="floatingStudentid" placeholder="Student ID" required>
+              <label for="floatingStudentid">Student ID</label>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-floating mb-4">
+              <input type="email" class="form-control bg-body-tertiary" id="floatingEmail" placeholder="E-mail" required>
+              <label for="floatingEmail">E-mail</label>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control bg-body-tertiary" id="floatingCity" placeholder="City" required>
+              <label for="floatingCity">City</label>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-floating mb-4">
+              <select class="form-select bg-body-tertiary" id="floatingState">
+                <option selected>Choose...</option>
+                <!-- States List -->
+                <option value="1">Johor</option>
+                <option value="2">Kedah</option>
+                <option value="3">Kelantan</option>
+                <option value="4">Melaka</option>
+                <option value="5">Negeri Sembilan</option>
+                <option value="6">Pahang</option>
+                <option value="7">Pulau Pinang</option>
+                <option value="8">Perak</option>
+                <option value="9">Perlis</option>
+                <option value="10">Selangor</option>
+                <option value="11">Terengganu</option>
+                <option value="12">Sabah</option>
+                <option value="13">Sarawak</option>
+                <option value="14">W.P Kuala Lumpur</option>
+                <option value="15">W.P Labuan</option>
+                <option value="16">W.P Putrajaya</option>
+              </select>
+              <label for="floatingState">State</label>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control bg-body-tertiary" id="floatingPostcode" placeholder="Postcode">
+              <label for="floatingPostcode">Postcode</label>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control bg-body-tertiary" id="floatingSemester" placeholder="Semester">
+              <label for="floatingSemester">Semester</label>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-floating mb-4">
+              <select class="form-select bg-body-tertiary" id="floatingSelect">
+                <option selected>Select Faculty...</option>
+                <!-- Faculty Options -->
+                <option value="1">Farmasi</option>
+                <option value="2">Perladangan & Agroteknologi</option>
+                <option value="2">Akaun</option>
+                <option value="2">Kejuruteraan</option>
+                <option value="2">Seni Lukis Dan Seni Reka</option>
+                <option value="2">Pengurusan Maklumat</option>
+                <option value="2">Bahasa</option>
+                <option value="2">Geologi</option>
+                <option value="2">Sains Komputer</option>
+                <option value="2">Matematik</option>
+                <option value="2">Pentadbiran dan Sains Polisi</option>
+                <option value="2">Agroteknologi</option>
+                <!-- Add remaining faculties -->
+              </select>
+              <label for="floatingSelect">Faculty</label>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control bg-body-tertiary" id="floatingCourse" placeholder="Course">
+              <label for="floatingCourse">Course</label>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control bg-body-tertiary" id="floatingCampus" placeholder="Campus">
+              <label for="floatingCampus">Campus</label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="invalidCheck2" required>
+              <label class="form-check-label" for="invalidCheck2">Agree to terms and conditions</label>
+            </div>
+          </div>
+
+          <div class="col-12 mt-3">
+            <a href="report.html" class="btn btn-primary">Submit</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-body-tertiary">
+      <div class="moving-rgb-line"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <h5 class="title_footer">UiTM Student E-Profile</h5>
+            <p><b><i>UiTM Di Hatiku Usaha Taqwa Mulia</i></b></p>
+            <img src="img/uitmlogo.png" alt="UiTM Logo" width="100px">
+          </div>
+          <div class="col-md-4 text-center">
+            <h5>Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="about.html" class="text-decoration-none">About</a></li>
+              <li><a href="contact.html" class="text-decoration-none">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 text-center">
+            <h5>Contact Us</h5>
+            <p>Email: puncakperdana@uitm.edu.my</p>
+            <p>Phone: +60379622000</p>
+            <p>Address: No. 1, Jalan Pulau Angsa, AU 10/A, Section U10, 40150 Shah Alam, Selangor.</p>
+          </div>
+        </div>
+        <hr class="my-3">
+        <div class="text-center small text-muted">
+          &copy; 2025 UiTM. All Rights Reserved. Akmal Zainudin | <a href="sitemap.html" class="text-decoration-none">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Dark Mode Script -->
+    <script>
+      function setTheme(theme) {
+        document.documentElement.setAttribute("data-bs-theme", theme);
+        localStorage.setItem("theme", theme);
+        document.getElementById("themeLabel").innerText =
+          theme === "dark" ? "Dark Mode On" : "Dark Mode Off";
+      }
+
+      document.getElementById("darkModeToggle").addEventListener("change", function (event) {
+        setTheme(event.target.checked ? "dark" : "light");
+      });
+
+      window.onload = function () {
+        let savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          setTheme(savedTheme);
+          if (savedTheme === "dark") {
+            document.getElementById("darkModeToggle").checked = true;
+          }
+        }
+      };
+    </script>
+  </body>
+</html>
